@@ -123,9 +123,9 @@
       return await response.json();
     }
 
-    // Gemini API Request
+    // Gemini API Request (Updated to gemini-2.5-flash)
     async function analyzeIngredientsWithGemini(ingredients, apiKey) {
-      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
       const prompt = `
         Analyze the following product ingredients: "${ingredients}".
         Provide a structured HTML summary (using simple <table>, <b>, or bullet points without full html wrapper tags).

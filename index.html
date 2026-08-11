@@ -29,9 +29,15 @@
       </div>
     </div>
 
-    <button onclick="processInput()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-lg shadow transition-colors">
-      Analyze Product & Ingredients
-    </button>
+    <!-- Action Buttons -->
+    <div class="flex gap-2">
+      <button onclick="processInput()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 rounded-lg shadow transition-colors">
+        Analyze Product & Ingredients
+      </button>
+      <button onclick="clearForm()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium px-4 py-2.5 rounded-lg transition-colors">
+        Clear
+      </button>
+    </div>
 
     <!-- Status Messages -->
     <div id="status" class="mt-4 text-sm font-medium text-slate-600 hidden"></div>
@@ -39,7 +45,7 @@
     <!-- Results Display -->
     <div id="results" class="mt-6 hidden">
       <h2 id="productTitle" class="text-lg font-bold text-indigo-950 mb-2"></h2>
-      <div id="aiOutput" class="prose max-w-none text-slate-700 text-sm bg-slate-50 p-4 rounded-lg border border-slate-200"></div>
+      <div id="aiOutput" class="prose max-w-none text-slate-700 text-sm bg-slate-50 p-4 rounded-lg border border-slate-200 overflow-x-auto"></div>
     </div>
   </div>
 
@@ -50,6 +56,13 @@
 
     function getApiKey() {
       return _p1 + _p2;
+    }
+
+    function clearForm() {
+      document.getElementById('imageInput').value = '';
+      document.getElementById('manualIngredients').value = '';
+      document.getElementById('status').classList.add('hidden');
+      document.getElementById('results').classList.add('hidden');
     }
 
     async function processInput() {
